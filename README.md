@@ -12,7 +12,7 @@ By implementing this from scratch in Rust, I’ve deepened my understanding of *
 ## ✨ Highlights
 
 * Supports **prefix, postfix, and infix operators**
-* Correctly handles **precedence** (e.g., `*` binds stronger than `+`) and **associativity rules**
+* Correctly handles **precedence** (e.g., `*` binds stronger than `+`) and **associativity rules** 
 * Implements **ternary (`?:`)**, **unary (`-`, `+`)**, **postfix (`!`, indexing `[]`)**, and **chaining (`.`)**
 * Outputs a clean **AST in Lisp-style format** for readability
 * Modular design that integrates seamlessly with the lexer
