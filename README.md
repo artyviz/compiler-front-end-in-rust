@@ -1,55 +1,62 @@
-# Custom Parser in Rust (Part 2)
+# 🦀 Compiler Front-End in Rust
 
 [![A Custom Parser](./src/comp1.png)](https://youtu.be/yKzcWMr7YX8)
 
+*(Lexer + Parser Integration Project)*
 
-This project is the **second milestone** in my journey toward compiler construction. After building a custom lexer and tokenizer, I’ve now implemented a **Pratt Parser** in Rust. The parser takes the stream of tokens and constructs an **Abstract Syntax Tree (AST)** — the structured backbone of any programming language.
-
-By implementing this from scratch in Rust, I’ve deepened my understanding of **operator precedence, associativity, and expression parsing** — key concepts in compiler front-end design.
-
----
-
-## ✨ Highlights
-
-* Supports **prefix, postfix, and infix operators**
-* Correctly handles **precedence** (e.g., `*` binds stronger than `+`) and **associativity rules** 
-* Implements **ternary (`?:`)**, **unary (`-`, `+`)**, **postfix (`!`, indexing `[]`)**, and **chaining (`.`)**
-* Outputs a clean **AST in Lisp-style format** for readability
-* Modular design that integrates seamlessly with the lexer
+This repository combines my **custom lexer** and **Pratt parser**, marking a significant milestone in my compiler development journey.
+Built entirely in **Rust**, it covers the **front-end phase of a compiler** — transforming raw source code into a structured **Abstract Syntax Tree (AST)**.
 
 ---
 
-## 🌱 Future Plans
+## 🧩 Overview
 
-This parser is just one step forward. Next, I’ll be working on:
+### 🔹 Lexer
 
-* Type checking and semantic analysis
-* Error handling and diagnostics for malformed code
-* Code generation for a toy language
-* Extending this into a **complete compiler in Rust**
+The lexer (or tokenizer) scans raw text and produces a stream of tokens — the fundamental symbols of the language.
+It handles:
+
+* Keywords, identifiers, literals, operators, and delimiters
+* Efficient span tracking (line & column info)
+* Error detection for invalid tokens
+
+### 🔹 Parser
+
+The parser consumes tokens from the lexer and constructs an **AST** using the **Pratt Parsing** technique.
+It supports:
+
+* Prefix, postfix, and infix expressions
+* Correct precedence and associativity
+* Ternary (`?:`), unary (`-`, `+`), postfix (`!`, `[]`), and chaining (`.`)
+* AST output in Lisp-style format
 
 ---
 
-## 🛠️ Built With
+## 🛠️ Tech Stack
 
-* **Rust**
-* **Pratt Parsing** technique
-* Core **compiler front-end design principles**
+* **Language:** Rust 🦀
+* **Core Concepts:** Lexical Analysis, Pratt Parsing, Abstract Syntax Tree
+* **Paradigm:** Modular compiler front-end architecture
 
 ---
 
-## 📂 Repository Structure
+## 🗂️ Repository Structure
 
 ```
-├── src
-│   ├── ast
-│   │   ├── lexer.rs     # Lexer implementation
-│   │   ├── parser.rs    # Pratt parser implementation
-│   │   └── mod.rs       # Module exports
-│   ├── main.rs          # Entry point
-│   └── span.rs          # Span tracking (positions)
-├── Cargo.toml           # Rust project configuration
-└── README.md            # Project documentation
+compiler-front-end-in-rust/
+├── lexer/
+│   ├── src/
+│   │   ├── lexer.rs          # Tokenizer implementation
+│   │   └── span.rs           # Source position tracking
+│   └── Cargo.toml
+├── parser/
+│   ├── src/
+│   │   ├── parser.rs         # Pratt parser logic
+│   │   └── ast.rs            # Abstract Syntax Tree structures
+│   └── Cargo.toml
+├── integration/
+│   └── main.rs               # Combines lexer + parser
+└── README.md
 ```
 
 ---
@@ -58,19 +65,19 @@ This parser is just one step forward. Next, I’ll be working on:
 
 ### Prerequisites
 
-* Install [Rust](https://www.rust-lang.org/)
+* [Install Rust](https://www.rust-lang.org/)
 
-### Build & Run
+### Run Locally
 
 ```bash
-git clone https://github.com/artyviz/Custom-parser-in-Rust
-cd rust-parser
+git clone https://github.com/artyviz/compiler-front-end-in-rust.git
+cd compiler-front-end-in-rust
 cargo run
 ```
 
 ---
 
-## 📖 Examples
+## 📖 Example
 
 **Input:**
 
@@ -98,12 +105,17 @@ a ? b : c ? d : e
 
 ---
 
-## 🤝 Contributing
+## 🌱 Future Scope
 
-Contributions, issues, and feature requests are welcome! Feel free to open an issue or submit a pull request.
+* Type checking & semantic analysis
+* Error diagnostics and recovery
+* Intermediate representation & code generation
+* Full **compiler pipeline** for a toy language
 
 ---
 
-## 📜 License
+## 🛡️ License
+
+This project is licensed under the **MIT License**. See [LICENSE](LICENSE) for details.
 
 This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
